@@ -14,4 +14,6 @@ The code has a scrapper to get the links and model features on a specific url. A
 - URL parameters and the rightmost slash ("/") of the URL's are not considered as part of URL for the sets of URL's in this code;
 - Only non-empty link HTML tags are considered links, for example, <a href="#"><a/> is discarted;
 - More than one link of the same site in a page is considered as only one appearance of that site;
+- Links referencing paths and starting with `/` will be concatenated on the base URL to form a new URL;
+- URL's need to start with `http`;
 - The counting will only occur in a subset of the internet that was crawled, so the prediction will represent the number of appearances in that subset;
