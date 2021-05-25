@@ -1,0 +1,6 @@
+from .CharactersCountParser import CharactersCountParser
+from .ImagesCountParser import ImagesCountParser
+from .UniqueLinksCountParser import UniqueLinksCountParser
+from .UniqueLinksParser import UniqueLinksParser
+from .UrlLengthParser import UrlLengthParser
+from .WordsCountParser import WordsCountParser
