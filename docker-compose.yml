@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  api:
+    build: .
+    image: links-references-prediction
+    command: flask run
+    ports:
+      - 5000:5000
+    env_file:
+      - .env
+    environment:
+      FLASK_APP: src/api/api.py
+      FLASK_ENV: development
+      FLASK_RUN_HOST: 0.0.0.0
+      FLASK_RUN_PORT: 5000
+    volumes:
+      - links-references-prediction-data:/workspace/data
+volumes:
+  links-references-prediction-data:
+    external: true

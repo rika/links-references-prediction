@@ -1,4 +1,0 @@
-MASTER=local[*]
-APP_NAME=links-references-prediction
-URLS=https://www.google.com/
-DEPTH=1
