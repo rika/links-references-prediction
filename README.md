@@ -42,6 +42,11 @@ make run
 ```
 For the last, `make run` can be executed to start the API, which will run port http://localhost:5000.
 
+```
+make test
+```
+There also some unit tests that can be run.
+
 ### API
 
 The following endpoints area available:
