@@ -13,12 +13,17 @@ The code has a scrapper and parsers to get the links and features of given urls.
 The [Spark MLlib](http://spark.apache.org/docs/latest/ml-guide.html) is used to train the model for the prediction.
 
 ## Assumptions
+
 - URL parameters and the rightmost slash ("/") of the URL's are not considered as part of URL for the sets of URL's in this code, the same applies for querystrings and anchors;
 - Only non-empty link HTML tags are considered links, for example, `<a href="#"><a />` is discarted;
 - More than one link of the same site in a page is considered as only one appearance of that site;
 - Links referencing paths and starting with `/` will be concatenated on the base URL to form a new URL;
 - URL's need to start with `http`;
 - The counting will only occur in a subset of the internet that was crawled, so the prediction will represent the number of appearances in that subset;
+
+## Requirements
+
+`Docker` and `Makefile` are required to run this project.
 
 ## Running
 
