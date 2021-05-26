@@ -9,7 +9,7 @@ build:
 	docker-compose build
 
 build-nc:
-	docker-compose --no-cache build
+	docker-compose build --no-cache
 
 volume:
 	docker volume create --name=links-references-prediction-data
