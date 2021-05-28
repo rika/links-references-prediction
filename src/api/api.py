@@ -80,7 +80,7 @@ def get_prediction():
         df_appearances = storage.get('appearances').where(f'url = "{url}"')
 
         if df_appearances.count() > 0:
-            prediction = df_appearances.select('appearances').collect()[0]
+            prediction = df_appearances.select('appearances').collect()[0][0]
         else:
             model = storage.getModel()
             df_features = _get_features_df(spark, storage, url)
@@ -88,7 +88,13 @@ def get_prediction():
             data = df_features.select(*Crawler.features_cols)
             prediction = model.transform(data) \
                 .select('prediction') \
-                .collect()[0]
+                .collect()[0][0]
+
+            df_appearances = spark.createDataFrame(
+                data=[(url, int(prediction))],
+                schema=Crawler.appearances_schema
+            )
+            storage.append('appearances', df_appearances)
 
         return json.dumps({
             'prediction': prediction
